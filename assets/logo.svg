@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="hmfGlobe" x1="10" y1="30" x2="170" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2FAE60"/>
+      <stop offset="1" stop-color="#146B8C"/>
+    </linearGradient>
+  </defs>
+  <circle cx="88" cy="95" r="62" fill="url(#hmfGlobe)"/>
+  <g stroke="#123A63" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M45 45 v34 a45 45 0 0 0 90 0 V45"/>
+    <path d="M45 45 a10 10 0 1 1 -0.1 0"/>
+    <path d="M135 45 a10 10 0 1 1 -0.1 0"/>
+    <path d="M90 124 v20 a26 26 0 1 0 26 -26 h-14"/>
+  </g>
+  <circle cx="90" cy="168" r="17" fill="#2FAE60" stroke="#123A63" stroke-width="9"/>
+  <path d="M90 175c-8-6-13-10-13-16 0-4 3-7 7-7 3 0 5 1.5 6 4 1-2.5 3-4 6-4 4 0 7 3 7 7 0 6-5 10-13 16z" fill="#123A63"/>
+  <text x="88" y="103" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-weight="700" font-size="34" fill="#123A63">HMF</text>
+</svg>

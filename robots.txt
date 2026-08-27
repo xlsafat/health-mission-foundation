@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.healthmissionfoundation.com.au/sitemap.xml
