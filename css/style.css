@@ -628,7 +628,9 @@ a { text-decoration: none; }
 }
 
 @media (max-width: 575.98px) {
+  .hmf-doctor-portrait-chip.chip-top { left: 0; }
   .hmf-doctor-portrait-chip.chip-mid { right: 0; }
+  .hmf-doctor-portrait-chip.chip-bottom { left: 0; }
 }
 
 /* ---------- Approach / Orbit diagram ---------- */
@@ -862,6 +864,52 @@ a { text-decoration: none; }
 .hmf-info-card p, .hmf-info-card ul { color: var(--hmf-text-soft); font-size: .93rem; line-height: 1.7; margin: 0; }
 .hmf-info-card ul { padding-left: 1.1rem; }
 
+/* ---------- Location cards ---------- */
+.hmf-location-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(15,44,76,.06);
+  box-shadow: var(--hmf-shadow);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.hmf-location-card iframe { width: 100%; height: 100%; }
+.hmf-location-body { padding: 1.5rem 1.6rem 1.7rem; }
+.hmf-location-body h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--hmf-navy);
+  margin-bottom: .6rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.hmf-location-body h3 i { color: var(--hmf-green); }
+.hmf-location-body p {
+  color: var(--hmf-text-soft);
+  font-size: .92rem;
+  line-height: 1.6;
+  margin: 0 0 .5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: .5rem;
+}
+.hmf-location-body p i { color: var(--hmf-green); margin-top: .2rem; flex: 0 0 auto; }
+.hmf-location-body p a { color: var(--hmf-blue); font-weight: 600; }
+.hmf-location-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  font-weight: 700;
+  font-size: .88rem;
+  color: var(--hmf-blue);
+  margin-top: .4rem;
+}
+.hmf-location-link:hover { color: var(--hmf-navy-2); gap: .6rem; transition: gap .2s ease; }
+
 /* ---------- Mission checklist ---------- */
 .hmf-mission-item {
   display: flex;
@@ -982,6 +1030,10 @@ a { text-decoration: none; }
 /* ---------- Responsive ---------- */
 @media (max-width: 991.98px) {
   .hmf-navbar.scrolled, .hmf-navbar { background: rgba(255,255,255,.97); backdrop-filter: blur(10px); }
+  .navbar-collapse { padding: 1rem 0 .5rem; }
+  .navbar-nav .nav-item { margin-bottom: .35rem; }
+  .navbar-nav .nav-item:last-child { margin-bottom: 0; }
+  .navbar-nav .nav-item .btn { width: 100%; }
   .hmf-hero { padding-top: 120px; text-align: left; }
   .hmf-page-header { padding-top: 120px; }
   .hmf-orbit-wrap { max-width: 340px; }
