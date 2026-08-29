@@ -30,6 +30,25 @@ h1, h2, h3, h4, .hmf-brand-text {
 
 a { text-decoration: none; }
 
+/* ---------- Focus states ---------- */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--hmf-green);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.hmf-hero :focus-visible,
+.hmf-cta-banner :focus-visible,
+.hmf-approach :focus-visible,
+.hmf-footer :focus-visible {
+  outline-color: #fff;
+}
+
 .hmf-text-gradient {
   background: linear-gradient(90deg, var(--hmf-green-2), var(--hmf-blue));
   -webkit-background-clip: text;
@@ -189,6 +208,11 @@ a { text-decoration: none; }
   height: 90px;
   z-index: 0;
   opacity: .35;
+  pointer-events: none;
+}
+@media (max-width: 767.98px) {
+  /* The wide zigzag doesn't compress well into a narrow hero and crosses the headline text */
+  .hmf-heartbeat { display: none; }
 }
 .hmf-heartbeat path {
   fill: none;
@@ -652,12 +676,13 @@ a { text-decoration: none; }
   max-width: 460px;
   aspect-ratio: 1 / 1;
   margin: 0 auto;
+  --orbit-radius: 175px;
 }
 .hmf-orbit-wrap::before {
   content: "";
   position: absolute;
   inset: 12%;
-  border: 2px dashed rgba(255,255,255,.25);
+  border: 2px dashed rgba(26,107,181,.18);
   border-radius: 50%;
 }
 .hmf-orbit-center {
@@ -673,7 +698,8 @@ a { text-decoration: none; }
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: clamp(.85rem, 1.6vw, 1.05rem);
-  box-shadow: 0 25px 50px -20px rgba(0,0,0,.4);
+  box-shadow: var(--hmf-shadow);
+  border: 1px solid rgba(15,44,76,.06);
   z-index: 3;
 }
 .hmf-orbit-item {
@@ -683,22 +709,22 @@ a { text-decoration: none; }
   width: 108px;
   margin-left: -54px;
   margin-top: -34px;
-  transform: rotate(var(--angle)) translate(0, -44%) rotate(calc(-1 * var(--angle)));
+  transform: rotate(var(--angle)) translateY(calc(-1 * var(--orbit-radius))) rotate(calc(-1 * var(--angle)));
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: .35rem;
-  color: #fff;
+  color: var(--hmf-navy-2);
   z-index: 2;
 }
 .hmf-orbit-item i {
   width: 46px; height: 46px;
   border-radius: 50%;
-  background: rgba(255,255,255,.14);
-  border: 1px solid rgba(255,255,255,.35);
+  background: linear-gradient(135deg, var(--hmf-blue), var(--hmf-green));
+  color: #fff;
   display: flex; align-items: center; justify-content: center;
   font-size: 1.15rem;
-  backdrop-filter: blur(4px);
+  box-shadow: var(--hmf-shadow);
   transition: transform .25s ease, background .25s ease;
 }
 .hmf-orbit-item:hover i {
@@ -1054,15 +1080,39 @@ a { text-decoration: none; }
   .navbar-nav .nav-item .btn { width: 100%; }
   .hmf-hero { padding-top: 120px; text-align: left; }
   .hmf-page-header { padding-top: 120px; }
-  .hmf-orbit-wrap { max-width: 340px; }
+  .hmf-orbit-wrap { max-width: 340px; --orbit-radius: 128px; }
   .hmf-orbit-item { width: 88px; margin-left: -44px; margin-top: -28px; }
 }
 
 @media (max-width: 575.98px) {
   .hmf-hero-visual { max-width: 300px; }
   .hmf-doctor-portrait-chip { font-size: .68rem; padding: .45rem .8rem; }
-  .hmf-orbit-wrap { max-width: 300px; }
+  .hmf-orbit-wrap { max-width: 300px; --orbit-radius: 112px; }
   .hmf-orbit-center { font-size: .78rem; }
   .hmf-orbit-item span { font-size: .68rem; }
   .hmf-orbit-item i { width: 38px; height: 38px; font-size: .95rem; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-up {
+    opacity: 1;
+    transform: none;
+  }
+  .hmf-btn-primary:hover,
+  .hmf-btn-outline:hover,
+  .hmf-btn-light:hover,
+  .hmf-btn-healthshare:hover,
+  .hmf-service-card:hover,
+  .hmf-location-link:hover,
+  .hmf-footer-contact a:hover {
+    transform: none;
+  }
 }
