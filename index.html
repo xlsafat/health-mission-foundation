@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function () {
+    var stored = localStorage.getItem('hmf-theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
 <title>Health Mission Foundation | Geriatric &amp; Aged-Care Specialist, South Western Sydney</title>
 <meta name="description" content="Private, community-based specialist geriatric and general medicine care in South Western Sydney NSW. Comprehensive geriatric assessment, dementia care, falls &amp; frailty assessment, and more.">
 <meta name="robots" content="index, follow">
@@ -129,6 +136,12 @@
         <li class="nav-item ms-lg-2">
           <a class="btn hmf-btn-primary btn-sm px-3" href="index.html#contact">Get in Touch</a>
         </li>
+        <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
+          <button type="button" class="hmf-theme-toggle" id="hmfThemeToggle" aria-pressed="false" aria-label="Switch to dark mode">
+            <i class="bi bi-sun-fill" aria-hidden="true"></i>
+            <i class="bi bi-moon-stars" aria-hidden="true"></i>
+          </button>
+        </li>
       </ul>
     </div>
   </div>
@@ -136,6 +149,8 @@
 
 <!-- ============ HOME / HERO ============ -->
 <header class="hmf-hero" id="top">
+  <div class="hmf-hero-blob hmf-blob-1"></div>
+  <div class="hmf-hero-blob hmf-blob-2"></div>
   <svg class="hmf-heartbeat" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true">
     <path id="hmfHeartbeatPath" d="M0,60 L140,60 L165,20 L190,100 L215,60 L250,60 L270,40 L290,60 L800,60" />
   </svg>
@@ -160,7 +175,7 @@
         </p>
         <div class="d-flex flex-wrap align-items-center gap-4 reveal-up delay-3">
           <a href="index.html#services" class="btn hmf-btn-primary btn-lg px-4">Explore Our Services</a>
-          <a href="index.html#referrals" class="hmf-text-link">Refer a Patient <i class="bi bi-arrow-right"></i></a>
+          <a href="index.html#referrals" class="btn hmf-btn-outline btn-lg px-4">Refer a Patient</a>
         </div>
 
         <div class="hmf-value-strip reveal-up delay-4">

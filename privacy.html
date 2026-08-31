@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function () {
+    var stored = localStorage.getItem('hmf-theme');
+    var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+</script>
 <title>Privacy Policy | Health Mission Foundation</title>
 <meta name="description" content="Health Mission Foundation's privacy policy, explaining how personal and health information is collected, used, stored and disclosed.">
 <meta name="robots" content="index, follow">
@@ -61,6 +68,12 @@
         </li>
         <li class="nav-item ms-lg-2">
           <a class="btn hmf-btn-primary btn-sm px-3" href="index.html#contact">Get in Touch</a>
+        </li>
+        <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
+          <button type="button" class="hmf-theme-toggle" id="hmfThemeToggle" aria-pressed="false" aria-label="Switch to dark mode">
+            <i class="bi bi-sun-fill" aria-hidden="true"></i>
+            <i class="bi bi-moon-stars" aria-hidden="true"></i>
+          </button>
         </li>
       </ul>
     </div>

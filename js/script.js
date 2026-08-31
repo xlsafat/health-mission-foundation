@@ -1,5 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  // Dark mode toggle
+  var themeToggle = document.getElementById('hmfThemeToggle');
+  if (themeToggle) {
+    function currentTheme() {
+      return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    }
+    function syncToggleState() {
+      var isDark = currentTheme() === 'dark';
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+    syncToggleState();
+    themeToggle.addEventListener('click', function () {
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('hmf-theme', next);
+      syncToggleState();
+    });
+  }
+
   // Footer year
   var yearEl = document.getElementById('hmfYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
